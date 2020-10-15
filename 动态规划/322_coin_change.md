@@ -14,7 +14,7 @@
 - 0 <= amount <= 10^4
 
 ## examples
-![](322examples.png)
+![](/attachments/322examples.png)
 
 ## 思路
 ### 1. 自上而下动态规划（递归）
@@ -82,7 +82,7 @@ class Solution1:
         return dp(amount)
 ```
 
-![](322_amount11.jpg)
+![](/attachments/322_amount11.jpg)
 
 #### 复杂度分析
 时间复杂度：子问题总数 * 每个子问题的时间
