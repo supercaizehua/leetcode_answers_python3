@@ -1,8 +1,8 @@
 # 题目
 
-给定
-​	list: coins, 代表不同面额的硬币
-​	int: amount, 代表总金额
+给定  
+​	list: coins, 代表不同面额的硬币  
+​	int: amount, 代表总金额  
 
 要求
 - 计算凑成 __amount__ 所需要的 __最少__ 的硬币数量
