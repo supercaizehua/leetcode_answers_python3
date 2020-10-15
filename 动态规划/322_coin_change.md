@@ -1,20 +1,22 @@
 # 题目
-给定              
-1. list:coins, 代表不同面额的硬币          
-2. int:amount, 代表总金额   
-        
-要求          
-- 计算凑成 _amount_ 所需要的 _最少_ 的硬币数量       
-- 如果没有任何一种组合能凑成 _amount_ , 返回 -1    
-- 每种面额的硬币数量是无限的      
 
-边界条件      
+给定
+​	list: coins, 代表不同面额的硬币
+​	int: amount, 代表总金额
+
+要求
+- 计算凑成 __amount__ 所需要的 __最少__ 的硬币数量
+- 如果没有任何一种组合能凑成 __amount__ , 返回 -1
+- 每种面额的硬币数量是无限的
+
+边界条件
 - 1 <= coins.length <= 12
 - 1 <= coins\[i] <= 2^31 - 1
 - 0 <= amount <= 10^4
 
 ## examples
-![](/attachments/322examples.png)
+
+![](../attachments/322examples.png)
 
 ## 思路
 ### 1. 自上而下动态规划（递归）
@@ -23,14 +25,16 @@
 如果要求 amount=11 的最少硬币数
 如果此时知道 amount=10 的最少硬币数， 只需要把子问题的答案+1
 比如说coins=[1,2,5], amount = 11
-子问题 amount=10 + 面额为1 的硬币
-子问题 amount=9 + 面额为2 的硬币
+子问题 amount=10 + 面额为1 的硬币 
+子问题 amount=9 + 面额为2 的硬币 
 子问题 amount=6 + 面额为5 的硬币
 
 1. 确定base case
     amount = 0 时， 返回 0
 2. 确定【状态】，原问题和子问题中会变化的变量
-    由于硬币数量无限，面额也已经给定，只有总金额会不断向 base case 靠近，所以唯一的【状态】就是总金额 amount
+    由于硬币数量无限，面额也已经给定，只有总金额会不断向 base
+    case 靠近，所以唯一的【状态】就是总金额 amount
+
 3. 确定【选择】，也就是导致【状态】产生变化的行为
     在选择硬币时，每选择一枚硬币coin，相当于总金额变成了amount-coin，即改变了状态
 4. 明确 dp 函数/数组的定义
@@ -82,7 +86,7 @@ class Solution1:
         return dp(amount)
 ```
 
-![](/attachments/322_amount11.jpg)
+![](../attachments/322_amount11.jpg)
 
 #### 复杂度分析
 时间复杂度：子问题总数 * 每个子问题的时间
