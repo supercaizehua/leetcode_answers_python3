@@ -136,14 +136,13 @@ dp函数的定义与解法1类似，也是把总金额作为【状态】，不�
 ```python
 class Solution3:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        dp = [i + 1 for i in range(amount + 1)]
+        dp = [float('INF')] * (amount + 1)
         dp[0] = 0
-        size = len(dp)
-        for i in range(size):
+        for i in range(amount + 1):
             for coin in coins:
                 if i - coin < 0: continue
-                dp[i] = min(dp[i], 1 + dp[i - coin])
-        return dp[amount] if dp[amount] != amount + 1 else -1 
+                dp[i] = min(dp[i], 1+dp[i-coin])
+        return dp[amount] if dp[amount] != float('INF') else -1
 ```
 时间复杂度与2类似
 

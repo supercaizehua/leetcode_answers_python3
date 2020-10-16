@@ -67,14 +67,13 @@ dp 迭代解法
 '''
 class Solution3:
     def coinChange(self, coins: List[int], amount: int) -> int:
-        dp = [i + 1 for i in range(amount + 1)]
+        dp = [float('INF')] * (amount + 1)
         dp[0] = 0
-        size = len(dp)
-        for i in range(size):
+        for i in range(amount + 1):
             for coin in coins:
                 if i - coin < 0: continue
-                dp[i] = min(dp[i], 1 + dp[i - coin])
-        return dp[amount] if dp[amount] != amount + 1 else -1 
+                dp[i] = min(dp[i], 1+dp[i-coin])
+        return dp[amount] if dp[amount] != float('INF') else -1
 
 
 if __name__ == '__main__':
@@ -83,4 +82,5 @@ if __name__ == '__main__':
     test3 = ([1], 0)
     test4 = ([1], 2)
     test5 = ([1,2,5,7], 500)
-    print(Solution3().coinChange(*test5))
+    test6 = ([2], 3)
+    print(Solution3().coinChange(*test6))
